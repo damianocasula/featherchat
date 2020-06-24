@@ -22,6 +22,8 @@ io.on('connection', socket => {
   console.log('INFO: A user connected to the chat.')
 
   // A user logs into the chat
+  // TODO: Add message "<user> entered the room/chat."
+  // TODO: Add rooms system."
   socket.on('ACCESS', username => {
     // Accept only alphanumeric characters a-z, A-Z, 0-9
     const regex = /[^\w]|_/g
@@ -48,6 +50,7 @@ io.on('connection', socket => {
 
   // 'user is writing' logic
   socket.on('WRITING', username => socket.broadcast.emit('WRITING', username))
+  // FIXME: sometimes " is writing" without an username is shown
 
   // User logs out
   socket.on('disconnect', () => {
