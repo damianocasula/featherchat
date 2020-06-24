@@ -1,0 +1,16 @@
+{
+  "name": "featherchat-project",
+  "version": "0.0.1",
+  "description": "A start2impact project: a node.js / socket.io chat system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Damiano Casula",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.17.0",
+    "socket.io": "^2.2.0"
+  }
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Public chat - FeatherChat</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <div class="box-wrapper" id="access-wrapper">
+        <div>
+          <h1>FeatherChat</h1>
+          <h2>Access public chat</h2>
+        </div>
+
+        <div>
+          <h2>Choose an original username</h2>
+          <form id="username-form">
+            <input
+              type="text"
+              name="username"
+              id="username-input"
+              maxlength="20"
+              placeholder="Please enter a username"
+              required
+              autofocus
+            />
+            <button type="submit" id="access-button">Access</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="box-wrapper" id="app-wrapper">
+        <div id="chat-wrapper">
+          <div id="chat-info">
+            <div class="title">
+              <h2>Chat</h2>
+            </div>
+
+            <div id="typing"></div>
+          </div>
+
+          <div id="chat-messages-scroll-wrapper">
+            <div id="chat-messages"></div>
+          </div>
+
+          <div id="chat-form">
+            <form id="message-form">
+              <div id="message-input-wrapper">
+                <input
+                  type="text"
+                  id="message-input"
+                  maxlength="2048"
+                  required
+                  autofocus
+                />
+              </div>
+              <button type="submit" id="send-button">Send</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="side-wrapper">
+          <div id="online-users">
+            <div class="title">
+              <h2>Online users</h2>
+            </div>
+
+            <div id="online-users-list-scroll-wrapper">
+              <div id="online-users-list"></div>
+            </div>
+          </div>
+
+          <div id="exit-button-wrapper">
+            <button id="exit-button">Log out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script>
+      // TODO: add comments
+      $(document).ready(() => {
+        $("#app-wrapper").hide();
+
+        const socket = io();
+
+        $("#username-form").submit((e) => {
+          e.preventDefault();
+
+          socket.emit("ACCESS", $("#username-input").val());
+        });
+
+        socket.on("SUCCESSFUL_ACCESS", () => {
+          $("#access-wrapper").hide();
+          $("#app-wrapper").show();
+          $("#message-input").focus();
+        });
+
+        socket.on("USERNAME_IN_USE", () => {
+          $("#username-input").val("");
+          $("#username-input").attr("placeholder", "Username already in use");
+        });
+
+        socket.on("INVALID_USERNAME", () => {
+          $("#username-input").val("");
+          $("#username-input").attr(
+            "placeholder",
+            "Alphanumeric characters only"
+          );
+        });
+
+        $("#message-form").submit((e) => {
+          e.preventDefault();
+
+          $("#message-input").focus();
+
+          socket.emit("SEND_MESSAGE", $("#message-input").val());
+          $("#message-input").val("");
+        });
+
+        $("#message-input").keypress((e) => {
+          socket.emit("WRITING", $("#username-input").val());
+        });
+
+        socket.on("WRITING", (username) => {
+          $("#typing").html(`<p>${username} is writing...</p>`);
+        });
+
+        socket.on("UPDATE_ONLINE_USERS", (onlineUsers) => {
+          $("#online-users-list").html("");
+
+          for (let [key, value] of Object.entries(onlineUsers)) {
+            $("#online-users-list").append(
+              $("<div>").text(value).addClass("user")
+            );
+          }
+        });
+
+        socket.on("NEW_MESSAGE", ({ username, msg }) => {
+          $("#typing").html("");
+
+          $("#chat-messages-scroll-wrapper")
+            .stop()
+            .animate(
+              {
+                scrollTop: $("#chat-messages-scroll-wrapper")[0].scrollHeight,
+              },
+              500
+            );
+
+          $("#chat-messages").append(
+            $("<div>").html(`<b>${username}:</b> ${msg}`).addClass("message")
+          );
+        });
+
+        socket.on("SERVER_COMMUNICATION", (msg) => {
+          $("#chat-messages").append($("<div>").text(msg).addClass("message"));
+        });
+
+        $("#exit-button").click((e) => {
+          e.preventDefault();
+
+          location.reload();
+        });
+      });
+    </script>
+  </body>
+</html>
