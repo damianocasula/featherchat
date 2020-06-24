@@ -9,7 +9,7 @@ let onlineUsers = {}
 
 // Express setup
 app.use(express.static(path.join(__dirname, '/public')))
-const server = app.listen(port, () => console.log(`INFO: Server online on port ${port}.`))
+const server = app.listen(port, () => console.log(`INFO: Server online on http://localhost:${port}.`))
 
 // Home route
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/chat.html')))
