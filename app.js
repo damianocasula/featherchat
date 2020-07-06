@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 
 // Attributes and constants
-const port = 3552
+const port = 3000
 let onlineUsers = {}
 
 // Express setup
