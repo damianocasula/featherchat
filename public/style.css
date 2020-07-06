@@ -249,7 +249,23 @@ button {
 }
 
 #chat-messages .message {
-  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+#chat-messages .message .message-bubble {
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  border-bottom-left-radius: 0;
+  background-color: #00be89;
+  color: white;
+  margin-bottom: 0.2rem;
+}
+
+#chat-messages .message .username {
+  color: #444;
+  font-size: 90%;
 }
 
 /*

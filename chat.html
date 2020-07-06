@@ -157,7 +157,11 @@
             );
 
           $("#chat-messages").append(
-            $("<div>").html(`<b>${username}:</b> ${msg}`).addClass("message")
+            $("<div>")
+              .html(
+                `<div class="message-bubble">${msg}</div> <div class="username">${username}</div>`
+              )
+              .addClass("message")
           );
         });
 
