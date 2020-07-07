@@ -267,26 +267,30 @@ button {
 }
 
 #chat-form form {
-  display: grid;
-  grid-template-columns: 5fr 2fr;
+  display: flex;
   height: 100%;
 }
 
 #message-input-wrapper {
   height: 50px;
   display: flex;
-  padding: 9px;
+  margin-left: 10px;
+  margin-top: -1px;
+  padding-top: 1px;
   box-sizing: border-box;
+  width: 100%;
 }
 
 #message-input-wrapper input {
   font-size: 125%;
   height: 100%;
-  margin-top: -1px;
   margin-left: 0.25rem;
   outline: none;
   border: none;
   flex: 1;
+  width: 100%;
+}
+
 }
 
 #chat-form button {
