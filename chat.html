@@ -88,6 +88,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script>
       // TODO: add comments
+      let currentUsername = "";
+
       $(document).ready(() => {
         $("#app-wrapper").hide();
 
@@ -96,7 +98,9 @@
         $("#username-form").submit((e) => {
           e.preventDefault();
 
-          socket.emit("ACCESS", $("#username-input").val());
+          currentUsername = $("#username-input").val();
+
+          socket.emit("ACCESS", currentUsername);
         });
 
         socket.on("SUCCESSFUL_ACCESS", () => {
@@ -128,7 +132,7 @@
         });
 
         $("#message-input").keypress((e) => {
-          socket.emit("WRITING", $("#username-input").val());
+          socket.emit("WRITING", currentUsername);
         });
 
         socket.on("WRITING", (username) => {
@@ -157,13 +161,22 @@
               500
             );
 
-          $("#chat-messages").append(
-            $("<div>")
-              .html(
-                `<div class="message-bubble">${msg}</div> <div class="username">${username}</div>`
-              )
-              .addClass("message")
-          );
+          if (currentUsername === username)
+            $("#chat-messages").append(
+              $("<div>")
+                .html(
+                  `<div class="message-bubble green">${msg}</div> <div class="username">${username}</div>`
+                )
+                .addClass("message")
+            );
+          else
+            $("#chat-messages").append(
+              $("<div>")
+                .html(
+                  `<div class="message-bubble">${msg}</div> <div class="username">${username}</div>`
+                )
+                .addClass("message")
+            );
         });
 
         socket.on("SERVER_COMMUNICATION", (msg) => {

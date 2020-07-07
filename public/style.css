@@ -240,9 +240,13 @@ button {
   padding: 0.75rem 1.5rem;
   border-radius: 1rem;
   border-bottom-left-radius: 0;
-  background-color: #00be89;
+  background-color: rgb(126, 126, 126);
   color: white;
   margin-bottom: 0.2rem;
+}
+
+#chat-messages .message .message-bubble.green {
+  background-color: #00be89;
 }
 
 #chat-messages .message .username {
