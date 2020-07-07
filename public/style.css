@@ -20,29 +20,9 @@
   Base styles
 */
 
-body:before {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  display: block;
-  background-image: url("san-francisco.jpg"); /* SF background <3 */
-  background-position: center;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  -webkit-filter: blur(3px);
-  -moz-filter: blur(3px);
-  -o-filter: blur(3px);
-  -ms-filter: blur(3px);
-  filter: blur(3px);
-}
-
 body {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: #ccc;
   color: #1f1f1f;
 }
 
@@ -86,7 +66,8 @@ button {
   width: 60vw;
   height: 60vh;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
   background: #fefefe;
   box-shadow: 0 0 12px rgba(251, 251, 251, 0.25);
 }
@@ -178,6 +159,7 @@ button {
     height: 100vh;
     border-radius: 0;
     box-shadow: none;
+    border: none;
   }
 
   .box-wrapper#app-wrapper {
