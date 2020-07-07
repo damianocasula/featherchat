@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+}
+
 /*
   Base styles
 */
@@ -24,6 +28,7 @@ body {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #1f1f1f;
+  background-color: #f9f9f9;
 }
 
 h1,
@@ -63,13 +68,13 @@ button {
 */
 
 .box-wrapper {
-  width: 60vw;
-  height: 60vh;
+  width: 70vw;
+  height: 70vh;
   text-align: center;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  background: #fefefe;
-  box-shadow: 0 0 12px rgba(251, 251, 251, 0.25);
+  border-radius: 1rem;
+  border: 1px solid rgba(175, 175, 175, 0.25);
+  background: #fff;
+  box-shadow: 0 0 5px 2px rgba(175, 175, 175, 0.1);
 }
 
 .box-wrapper#access-wrapper {
@@ -77,6 +82,10 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+
+.box-wrapper#access-wrapper img.logo {
+  width: 25%;
 }
 
 .box-wrapper#access-wrapper h1,
@@ -119,13 +128,6 @@ button {
 .box-wrapper#app-wrapper {
   display: grid;
   grid-template-columns: 3fr 1fr;
-}
-
-@media screen and (max-width: 1600px) {
-  .box-wrapper {
-    width: 70vw;
-    height: 70vh;
-  }
 }
 
 @media screen and (max-width: 1400px) {
@@ -191,7 +193,7 @@ button {
   border-bottom: 1px solid rgb(226, 226, 226);
   display: grid;
   grid-template-columns: 1fr 2fr;
-  min-height: 6vh;
+  min-height: 50px;
 }
 
 #chat-info .title {
@@ -260,7 +262,7 @@ button {
 
 #chat-form {
   border-top: 1px solid rgb(226, 226, 226);
-  height: 6vh;
+  height: 50px;
 }
 
 #chat-form form {
@@ -270,7 +272,7 @@ button {
 }
 
 #message-input-wrapper {
-  height: 6vh;
+  height: 50px;
   display: flex;
   padding: 9px;
   box-sizing: border-box;
@@ -278,7 +280,9 @@ button {
 
 #message-input-wrapper input {
   font-size: 125%;
-  height: 80%;
+  height: 100%;
+  margin-top: -1px;
+  margin-left: 0.25rem;
   outline: none;
   border: none;
   flex: 1;
@@ -319,7 +323,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 6vh;
+  min-height: 50px;
 }
 
 /*
@@ -345,7 +349,7 @@ button {
 */
 
 #exit-button-wrapper {
-  height: 6vh;
+  height: 50px;
 }
 
 #exit-button-wrapper button {
