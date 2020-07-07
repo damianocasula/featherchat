@@ -191,16 +191,8 @@ button {
 
 #chat-info {
   border-bottom: 1px solid rgb(226, 226, 226);
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  min-height: 50px;
-}
-
-#chat-info .title {
-  border-right: 1px solid rgb(226, 226, 226);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-height: 50px;
 }
 
 /*
@@ -227,9 +219,11 @@ button {
 } /* Utility for div scrolling */
 
 #chat-messages {
-  padding: 10px;
+  padding: 0.5rem;
   font-size: 115%;
   text-align: left;
+  background-color: #eee;
+  min-height: 100%;
 }
 
 #chat-messages .message {
@@ -242,14 +236,16 @@ button {
   padding: 0.75rem 1.5rem;
   border-radius: 1rem;
   border-bottom-left-radius: 0;
-  background-color: rgb(126, 126, 126);
-  box-shadow: 0 0 3px 1px rgba(150, 150, 150, 0.4);
-  color: white;
+  background-color: #ddd;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #1f1f1f;
   margin-bottom: 0.2rem;
 }
 
 #chat-messages .message .message-bubble.green {
   background-color: #00be89;
+  box-shadow: 0 0 3px 1px rgba(150, 150, 150, 0.3);
+  color: white;
 }
 
 #chat-messages .message .username {
@@ -291,7 +287,8 @@ button {
   width: 100%;
 }
 
-#send-button-wrapper {
+#send-button-wrapper,
+#exit-button-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -299,7 +296,8 @@ button {
   margin: 0 0.5rem;
 }
 
-#chat-form button {
+#chat-form button,
+#exit-button-wrapper button {
   background: #02eeaa;
   color: #fefefe;
   width: auto;
@@ -315,6 +313,7 @@ button {
 #side-wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: stretch;
 }
 
 @media screen and (max-width: 800px) {
@@ -328,6 +327,8 @@ button {
 */
 
 #online-users {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
 
@@ -345,16 +346,19 @@ button {
 
 #online-users-list-scroll-wrapper {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
-  display: block;
 } /* Utility for div scrolling */
 
 #online-users-list {
+  flex-grow: 1;
   padding: 10px;
   font-size: 115%;
   text-align: left;
+  border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 /*
@@ -362,11 +366,10 @@ button {
 */
 
 #exit-button-wrapper {
-  height: 50px;
+  height: 49px;
 }
 
 #exit-button-wrapper button {
   background: rgb(223, 88, 88);
   color: #fefefe;
-  border-bottom-right-radius: 9px;
 }
