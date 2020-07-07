@@ -291,13 +291,21 @@ button {
   width: 100%;
 }
 
+#send-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5rem;
 }
 
 #chat-form button {
   background: #02eeaa;
-  margin-top: -1px;
-  margin-right: -2px;
   color: #fefefe;
+  width: auto;
+  height: auto;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.25rem;
 }
 
 /*
