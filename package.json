@@ -4,7 +4,8 @@
   "description": "A start2impact project: a node.js / socket.io chat system.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
   },
   "author": "Damiano Casula",
   "license": "MIT",
