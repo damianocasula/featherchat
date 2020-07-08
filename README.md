@@ -1,6 +1,10 @@
 # featherchat
 
-A start2impact project: a node.js / socket.io chat system.
+A start2impact project: a node.js / socket.io chat application.
+
+## Todo
+
+[] Rooms
 
 ## Development instructions
 
