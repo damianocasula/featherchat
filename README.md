@@ -2,9 +2,9 @@
 
 A start2impact project: a node.js / socket.io chat application.
 
-## Todo
+## Todos
 
-[] Rooms
+- [ ] Rooms
 
 ## Development instructions
 
