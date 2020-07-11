@@ -8,9 +8,9 @@ A start2impact project: a node.js / socket.io lightweight chat application.
 
 - [x] Chat bubbles
 - [ ] Rooms
-- [ ] Front-end framework (Vue/React?)
+- [ ] Front-end framework (Vue?)
 - [ ] Accounts
-- [ ] E2EE (Signal protocol?)
+- [ ] E2EE (Signal protocol? https://github.com/signalapp/libsignal-protocol-javascript)
 
 ## Development instructions
 
