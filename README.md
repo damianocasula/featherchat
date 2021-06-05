@@ -1,4 +1,4 @@
-<p align="center"><a href="https://featherchat.com" target="_blank" rel="noopener noreferrer"><img width="100" src="https://featherchat.com/feather.svg" alt="FeatherChat logo"></a></p>
+<p align="center"><a href="https://featherchat.com" target="_blank" rel="noopener noreferrer"><img width="100" src="logo.png" alt="FeatherChat logo"></a></p>
 
 <h2 align="center">FeatherChat</h2>
 
